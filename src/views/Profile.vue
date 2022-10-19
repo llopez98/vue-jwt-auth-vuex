@@ -8,7 +8,7 @@
         <p>
             <strong>Token:</strong>
             {{currentUser.token.substring(0, 20)}} ...
-            {{currentUser.token.substr(currentUser.accessToken.length - 20)}}
+            {{currentUser.token.substr(currentUser.token.length - 20)}}
         </p>
         <p>
             <strong>Id:</strong>
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-    name: 'Profile',
+    name: 'ProfileView',
     computed: {
         currentUser(){
             return this.$store.state.auth.user;

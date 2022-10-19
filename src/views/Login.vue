@@ -34,7 +34,7 @@
 import User from '../models/user';
 
 export default {
-    name: 'Login',
+    name: 'LoginView',
     data() {
         return {
             user: new User('', ''),
@@ -46,7 +46,7 @@ export default {
     */
     computed: {
         loggedIn() {
-            return this.$store.auth.status.loggedIn;
+            return this.$store.state.auth.loggedIn;
         }
     },
     created() {

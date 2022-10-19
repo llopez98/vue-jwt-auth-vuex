@@ -8,9 +8,10 @@
 
 <script>
 import UserService from '../services/user.service';
+import EventBus from '../common/EventBus';
 
 export default {
-    name: 'Warehouse',
+    name: 'WarehouseView',
     data() {
         return {
             content: ''
@@ -22,6 +23,10 @@ export default {
         },
             error => {
                 this.content = (error.response && error.response.data) || error.message || error.toString();
+
+                if(error.response && error.response.status === 403){
+                    EventBus.dispatch("logout");
+                }
             }
         );
     }

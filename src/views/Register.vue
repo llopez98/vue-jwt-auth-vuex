@@ -40,7 +40,7 @@
 import UserRegister from '../models/userRegister';
 
 export default {
-    name: 'Register',
+    name: 'RegisterView',
     data() {
         return {
             user: new UserRegister('', '', ''),

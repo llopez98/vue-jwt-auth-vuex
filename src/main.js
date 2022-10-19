@@ -14,12 +14,18 @@ import {
   faSignInAlt,
   faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons'
+import Vuex from 'vuex'
+import setupInterceptors from './services/setupInterceptors'
 
 library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 
 Vue.config.productionTip = false
 
 Vue.use(VeeValidate);
+Vue.use(Vuex);
+
+setupInterceptors(store);
+
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({

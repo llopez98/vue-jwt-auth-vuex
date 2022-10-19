@@ -10,7 +10,7 @@
 import UserService from '../services/user.service';
 
 export default {
-    name: 'Sales',
+    name: 'SalesView',
     data() {
         return {
             content: ''

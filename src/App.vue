@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href class="navbar-brand" @click.prevent>bezKoder</a>
+      <a href class="navbar-brand" @click.prevent>Test</a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/home" class="nav-link">
@@ -36,7 +36,7 @@
         <li class="nav-item">
           <router-link to="/profile" class="nav-link">
             <font-awesome-icon icon="user" />
-            {{ currentUser.username }}
+            {{ currentUser.email }}
           </router-link>
         </li>
         <li class="nav-item">
@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import EventBus from './common/EventBus';
+
 export default {
   computed: {
     currentUser() {
@@ -75,8 +77,16 @@ export default {
   methods:{
     logOut(){
       this.$store.dispatch('auth/logout');
-      this.$store.push('/login');
+      this.$router.push('/login');
     }
+  },
+  mounted(){
+    EventBus.on("logout", () => {
+      this.logOut();
+    });
+  },
+  beforeDestroy(){
+    EventBus.remove("logout");
   }
 }
 </script>
